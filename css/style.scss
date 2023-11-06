@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+$Segoe: "Segoe UI", sans-serif;
+
+#shopping {
+    height: 100vh;
+    background-color: #494970FF;
+
+    .shopping_modal {
+        padding-bottom: 34px;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #242442FF;
+        width: 500px;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        .shopping_modal_head {
+            border-radius: 5px 5px 0 0;
+            background-color: #1C1D39FF;
+            padding: 14px 0;
+            position: relative;
+
+            h4 {
+                font-size: 24px;
+                font-family: $Segoe;
+                color: rgb(198, 198, 219);
+                font-weight: bold;
+                line-height: 1.083;
+                text-align: center;
+            }
+
+            .modal_close {
+                cursor: pointer;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+            }
+        }
+
+        p {
+            margin: 10px 0 17px 0;
+            font-size: 16px;
+            font-family: $Segoe;
+            color: rgb(198, 198, 219);
+            line-height: 1.625;
+            font-weight: 400;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            input {
+                text-align: center;
+                padding: 11px 0;
+                border: none;
+                margin: 0 auto 26px auto;
+                width: calc(100% - 110px);
+                font-size: 24px;
+                font-family: $Segoe;
+                color: rgb(50, 50, 90);
+                font-weight: bold;
+                line-height: 1.083;
+                border-radius: 11px;
+                background-color: rgb(25, 25, 33);
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            button {
+                padding: 13px 0 ;
+                border: none;
+                cursor: pointer;
+                margin: 0 auto;
+                width: calc(100% - 110px);
+                font-size: 28px;
+                font-family: $Segoe;
+                color: rgb(255, 255, 255);
+                font-weight: bold;
+                line-height: 0.929;
+                border-radius: 4px;
+                background-color: rgb(232, 193, 138);
+            }
+                  
+        }
+
+    }
+}
+
+#error {
+    height: 100vh;
+    background-color: #1B1B3AFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .error_block {
+        .error_img {
+            transform: translateX(-50px);
+        }
+
+        h3 {
+            margin: 15px 0 0 0;
+            font-size: 32px;
+            font-family: $Segoe;
+            color: rgb(173, 173, 219);
+            line-height: 1.444;
+            font-weight: 400;
+        }
+
+        h4 {
+            margin-bottom: 19px;
+            font-size: 27px;
+            font-family: $Segoe;
+            color: rgb(173, 173, 219);
+            line-height: 1.444;
+            font-weight: 400;
+
+        }
+
+        button {
+            margin: 0 auto;
+            cursor: pointer;
+            padding: 9px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            background-color: transparent;
+            border: 1px solid rgb(198, 198, 219);
+            border-radius: 14px;
+            font-size: 20px;
+            font-family: $Segoe;
+            color: rgb(198, 198, 219);
+            line-height: 1.3;
+        }
+    }
+}
