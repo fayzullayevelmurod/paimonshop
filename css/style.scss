@@ -8,6 +8,52 @@
 
 $Segoe: "Segoe UI", sans-serif;
 
+body {
+    background-color: #21213CFF;
+}
+
+.header_container {
+    max-width: 1860px;
+    margin: 0 auto;
+    padding: 0 32px 0 8px;
+    display: flex;
+    align-items: center;
+}
+
+header {
+    padding: 16px 0 12px 0;
+    nav {
+        margin-left: 27px;
+        padding: 12px 17px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        border-radius: 18px;
+        background-image: linear-gradient(#2B2B44FF, #2B2B4FFF);
+
+        .nav_link {
+            font-size: 18px;
+            font-family: $Segoe;
+            color: rgb(255, 255, 255);
+            line-height: 1.266;
+            font-weight: 400;
+        }
+
+    }
+    button {
+        margin-left: auto;
+        width: 67px;
+        height: 67px;
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        
+        img {
+            width: 100%;
+        }
+    }
+}
+
 #shopping {
     height: 100vh;
     background-color: #494970FF;
