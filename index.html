@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./fonts/Arial/stylesheet.css">
     <link rel="stylesheet" href="./fonts/SegoeUI/stylesheet.css">
+    <link rel="stylesheet" href="./fonts/MyriadPro/stylesheet.css">
+    <link rel="stylesheet" href="./fonts/Rubik/stylesheet.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Paimonshop</title>
 </head>
@@ -18,14 +20,136 @@
                 <a class="nav_link" href="#">FAQ</a>
                 <a class="nav_link" href="#">Поддержка</a>
                 <a class="nav_link" href="#">Сообщество</a>
-                <a class="nav_link" href="#">Сотрудничество</a>
+                <a class="nav_link" href="https://t.me/noov4rt">Сотрудничество</a>
             </nav>
-            <button>
-                <img src="./images/header_icon.png" alt="">
-            </button>
+            <a class="sign_in" href="#">Мои покупки</a>
         </div>
     </header>
 
+    <section class="recent">
+        <div class="recent_container">
+            <h4>Недавние покупки</h4>
+            <div class="recent_cards">
+                <div class="recent_card">
+                    <div class="card_line"></div>
+                    <img src="./images/card.png" alt="">
+                    <h6>Аккаунт 100%<br>Ху Тао...</h6>
+                </div>
+                <div class="recent_card">
+                    <div class="card_line"></div>
+                    <img src="./images/card.png" alt="">
+                    <h6>Аккаунт 100%<br>Ху Тао...</h6>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="main_menu">
+        <button class="category_btn main_menu_btn">
+            Категории
+            <img src="./images/down_icon.svg" alt="">
+        </button>
+        <button class="region_btn main_menu_btn">
+            Регионы
+            <img src="./images/down_icon.svg" alt="">
+        </button>
+        <div class="slider-box">
+            <label for="priceRange">Price Range:</label>
+            <input type="text" id="priceRange" readonly>
+            <div id="price-range" class="slider"></div>
+        </div>
+    </section>
+
+    <section class="rendom_accounts">
+        <h3>Рандомные аккаунты</h3>
+        <div class="rendom_accounts_card">
+            <img src="./images/card.png" alt="">
+            <h4>Аккаунт 100% Ху Тао |<br> 
+                EU | Без почты
+            </h4>
+            <div class="price">
+                100.00 ₽
+                <span class="discount">120.00 ₽</span>
+            </div>
+        </div>
+        <h3 class="rendom_bottom">Аккаунты с примогемами</h3>
+        <div class="rendom_accounts_cards">
+            <div class="rendom_accounts_bottom_card">
+                <img src="./images/card.png" alt="">
+                <h4>Аккаунт 100% Ху Тао |<br> 
+                    EU | Без почты
+                </h4>
+                <div class="price">
+                    100.00 ₽
+                    <span class="discount">120.00 ₽</span>
+                </div>
+            </div>
+            <div class="rendom_accounts_bottom_card">
+                <img src="./images/card.png" alt="">
+                <h4>Аккаунт 100% Ху Тао |<br> 
+                    EU | Без почты
+                </h4>
+                <div class="price">
+                    100.00 ₽
+                    <span class="discount">120.00 ₽</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer_container">
+            <div class="footer_left">
+                <a href="#" class="footer_logo">
+                    <img src="./images/footer_logo.svg" alt="">
+                </a>
+                <div class="logo_text">
+                    <h3>© 2023 paimonshop.ru</h3>
+                    <a class="top_link">Различные товары Genshin Impact</a>
+                    <a class="footer_link" href="#">Пользовательское соглашение</a>
+                    <a class="footer_link" href="https://paimonshop.store/politic">Политика конфиденциальности</a>
+                    <a class="footer_link" href="#">FAQ</a>
+                    <a class="footer_link" href="#">Новости</a>
+                    <a href="https://t.me/noov4rt" class="copiration">Сотрудничество</a>
+                    <div class="social_media">
+                        <p>Наши соц. сети:</p>
+                        <a href="#"><img src="./images/youtube_icon.svg" alt=""></a>
+                        <a href="#"><img src="./images/vkontakt_icon.svg" alt=""></a>
+                        <a href="#"><img src="./images/telegram_icon.svg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_center">
+                <img src="./images/footer_img.png" alt="">
+            </div>
+            <div class="footer_right">
+                <div class="footer_right_text">
+                    <img src="./images/footer_text.png" alt="">
+                </div>
+                <p>Московская область, Химки, мкр. Старые Химки, ш. Вашутинское, 4Д;<br>
+                paimonshop.ru@gmail.com;<br>
+                +79870008391;</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function() {
+        $("#price-range").slider({
+            step: 1,
+            range: true, 
+            min: 0, 
+            max: 4444, 
+            values: [0, 4444], 
+            slide: function(event, ui)
+            {$("#priceRange").val(ui.values[0] + " - " + ui.values[1]);}
+        });
+        $("#priceRange").val($("#price-range").slider("values", 0) + " - " + $("#price-range").slider("values", 1));
+        
+        });
+    </script>
 </body>
 </html>
