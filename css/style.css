@@ -6,6 +6,10 @@
   text-decoration: none;
 }
 
+@font-face {
+  font-family: "BIP";
+  src: url("../fonts/BIP/bip.ttf");
+}
 body {
   background-color: #21213c;
 }
@@ -247,14 +251,6 @@ header .header_burger span {
   transform: translateY(-10px);
   width: 230px;
 }
-.main_menu .wrapper header h2 {
-  font-size: 24px;
-  font-weight: 600;
-}
-.main_menu .wrapper header p {
-  margin-top: 5px;
-  font-size: 16px;
-}
 .main_menu .wrapper .price-input {
   gap: 143px;
   width: 100%;
@@ -269,16 +265,7 @@ header .header_burger span {
   justify-content: center;
   align-items: center;
 }
-.main_menu .wrapper .price-input .input-min {
-  transform: translateX(-50%);
-}
-.main_menu .wrapper .price-input .input-max {
-  transform: translateX(50%);
-}
-.main_menu .wrapper .field input {
-  display: none !important;
-}
-.main_menu .wrapper span {
+.main_menu .wrapper .price-input .field span {
   white-space: nowrap;
   border-radius: 5px;
   background-color: #feb341;
@@ -292,15 +279,18 @@ header .header_burger span {
   outline: none;
   text-align: center;
 }
-.main_menu .wrapper input[type=number]::-webkit-outer-spin-button,
-.main_menu .wrapper input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+.main_menu .wrapper .price-input .field .input-min {
+  transform: translateX(-50%);
 }
-.main_menu .wrapper .price-input .separator {
-  display: flex;
-  font-size: 19px;
-  align-items: center;
-  justify-content: center;
+.main_menu .wrapper .price-input .field .input-max {
+  transform: translateX(50%);
+}
+.main_menu .wrapper .price-input .field input {
+  display: none !important;
+}
+.main_menu .wrapper .price-input .field input[type=number]::-webkit-outer-spin-button,
+.main_menu .wrapper .price-input .field input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 .main_menu .wrapper .slider {
   height: 5px;
@@ -322,31 +312,38 @@ header .header_burger span {
   width: calc(100% + 15px);
 }
 .main_menu .wrapper .range-input input {
+  background-color: transparent;
   position: absolute;
   width: 100%;
   height: 5px;
   top: 5px;
   left: -7px;
-  background: none;
   pointer-events: none;
 }
-.main_menu .wrapper input[type=range]::-webkit-slider-thumb {
-  border: 8px solid transparent;
+.main_menu .wrapper .range-input input[type=range]::-webkit-slider-thumb {
+  height: 17px;
+  width: 17px;
+  border: 12px solid transparent;
   border-bottom: 12px solid #feb341;
-  width: 12px;
-  border-top-right-radius: none;
   pointer-events: auto;
   -webkit-appearance: none;
 }
-.main_menu .wrapper input[type=range]::-moz-range-thumb {
+.main_menu .wrapper .range-input input[type=range]::-moz-range-thumb {
   height: 17px;
   width: 17px;
-  border: none;
-  border-radius: 50%;
-  background: #17a2b8;
+  border: 12px solid transparent;
+  border-bottom: 12px solid #feb341;
   pointer-events: auto;
   -moz-appearance: none;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+.main_menu .wrapper .range-input input[type=range]::-webkit-slider-runnable-track {
+  background-color: transparent;
+}
+.main_menu .wrapper .price-input .separator {
+  display: flex;
+  font-size: 19px;
+  align-items: center;
+  justify-content: center;
 }
 
 .rendom_accounts {
@@ -652,7 +649,7 @@ header .header_burger span {
 }
 #accardion_wrapper .accardion_in {
   max-width: 1460px;
-  margin: 120px auto 585px auto;
+  margin: 40px auto 85px auto;
   padding: 32px 52px;
   background-color: #242442;
   border-radius: 10px;
@@ -745,7 +742,7 @@ header .header_burger span {
   display: flex;
   align-items: start;
   gap: 56px;
-  position: static;
+  overflow: auto;
 }
 #payment .payment_text {
   padding: 28px 33px;
@@ -1071,6 +1068,10 @@ footer .footer_right .footer_right_text {
   display: inline-block;
   border-radius: 14px;
   background-color: #191939;
+  font-size: 16.636px;
+  font-family: "BIP";
+  color: rgb(247, 223, 189);
+  line-height: 1.383;
 }
 footer .footer_right p {
   margin-top: 135px;
