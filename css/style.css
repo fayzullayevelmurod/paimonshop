@@ -37,9 +37,47 @@ body {
 header {
   padding: 16px 0 0 0;
 }
-header nav {
+header .logo img {
+  width: 250px;
+}
+header .nav_media {
+  position: fixed;
+  width: 250px;
+  top: 0;
+  right: -100%;
+  z-index: 15;
+  height: 100vh;
   margin-left: 27px;
   padding: 12px 17px;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  text-align: left;
+  gap: 16px;
+  border-radius: 18px 0 0 18px;
+  background-image: linear-gradient(#2b2b44, #2b2b4f);
+  transition: 0.3s ease;
+}
+header .nav_media .nav_close {
+  cursor: pointer;
+  width: 30px;
+  margin: 0 10px;
+  margin-left: auto;
+}
+header .nav_media .nav_link {
+  font-size: 18px;
+  font-family: "Segoe UI", sans-serif;
+  color: rgb(255, 255, 255);
+  line-height: 1.266;
+  font-weight: 400;
+  transition: 0.2s ease;
+}
+header .nav_media .nav_link:hover {
+  color: #feb341;
+}
+header nav {
+  margin-left: 27px;
+  padding: 5px 17px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -47,7 +85,7 @@ header nav {
   background-image: linear-gradient(#2b2b44, #2b2b4f);
 }
 header nav .nav_link {
-  font-size: 18px;
+  font-size: 14px;
   font-family: "Segoe UI", sans-serif;
   color: rgb(255, 255, 255);
   line-height: 1.266;
@@ -69,8 +107,9 @@ header button img {
   width: 100%;
 }
 header .sign_in {
+  white-space: nowrap;
   margin-left: auto;
-  padding: 10px 15px;
+  padding: 7px 12px;
   font-size: 16px;
   font-family: "Segoe UI", sans-serif;
   color: rgb(255, 255, 255);
@@ -78,27 +117,44 @@ header .sign_in {
   border-radius: 7px;
   background-color: #31315a;
 }
+header .header_burger {
+  display: none;
+  margin: 0 10px;
+  width: 35px;
+  height: 25px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+}
+header .header_burger span {
+  display: block;
+  height: 3px;
+  background-color: #feb341;
+  width: 100%;
+}
 
 .recent h4 {
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 13px;
   font-family: "Segoe UI", sans-serif;
   color: rgb(99, 99, 115);
   line-height: 1.188;
   font-weight: 400;
 }
 .recent .recent_cards {
+  overflow-x: hidden;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 .recent .recent_cards .recent_card {
+  cursor: pointer;
   position: relative;
   text-align: center;
   width: 104px;
   padding: 17px 9px 8px 9px;
   border-radius: 15px 15px 0px 15px;
-  background-image: linear-gradient(45deg, rgb(32, 32, 105) 0%, rgb(32, 32, 105) 100%);
+  background: linear-gradient(180deg, rgb(45, 45, 90) 0%, rgb(59, 59, 156) 100%);
 }
 .recent .recent_cards .recent_card .card_line {
   position: absolute;
@@ -122,12 +178,52 @@ header .sign_in {
 }
 
 .main_menu {
+  margin: 0 20px;
+}
+.main_menu .main_menu_in {
   max-width: 1440px;
-  margin: 0 auto 128px auto;
+  margin: 28px auto 128px auto;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 53px;
+}
+.main_menu .category_btn, .main_menu .region_btn {
+  position: relative;
+}
+.main_menu .category_btn .category_list, .main_menu .region_btn .category_list {
+  height: 0;
+  position: absolute;
+  top: 46px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #31315a;
+  border-radius: 7px;
+  padding: 0 5px;
+  transition: 0.2s ease;
+  width: 100%;
+  z-index: -1;
+  opacity: 0;
+}
+.main_menu .category_btn .category_list a, .main_menu .region_btn .category_list a {
+  display: inline-block;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  font-size: 14.322px;
+  font-family: "Segoe UI", sans-serif;
+  color: rgb(255, 255, 255);
+  line-height: 1.257;
+  transition: 0.2s ease;
+}
+.main_menu .category_btn .category_list a:hover, .main_menu .region_btn .category_list a:hover {
+  color: #feb341;
+  border-bottom: 1px solid #feb341;
+}
+.main_menu .category_btn:hover .category_list, .main_menu .region_btn:hover .category_list {
+  height: auto;
+  z-index: 4;
+  opacity: 1;
 }
 .main_menu .main_menu_btn {
   cursor: pointer;
@@ -142,23 +238,117 @@ header .sign_in {
   font-family: "Segoe UI", sans-serif;
   color: rgb(255, 255, 255);
   line-height: 1.257;
+  transition: 0.2s ease;
 }
-.main_menu .slider-box {
-  width: 90%;
-  margin: 25px auto;
+.main_menu .main_menu_btn:hover {
+  background-color: #feb341;
 }
-.main_menu .slider-box label, .main_menu .slider-box input {
+.main_menu .wrapper {
+  transform: translateY(-10px);
+  width: 230px;
+}
+.main_menu .wrapper header h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+.main_menu .wrapper header p {
+  margin-top: 5px;
+  font-size: 16px;
+}
+.main_menu .wrapper .price-input {
+  gap: 143px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main_menu .wrapper .price-input .field {
+  margin-bottom: 5px;
+  display: flex;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+}
+.main_menu .wrapper .price-input .input-min {
+  transform: translateX(-50%);
+}
+.main_menu .wrapper .price-input .input-max {
+  transform: translateX(50%);
+}
+.main_menu .wrapper .field input {
+  display: none !important;
+}
+.main_menu .wrapper span {
+  white-space: nowrap;
+  border-radius: 5px;
+  background-color: #feb341;
+  width: 100%;
+  padding: 1px 8px;
   border: none;
-  display: inline-block;
-  margin-right: -4px;
-  vertical-align: top;
-  width: 30%;
+  font-size: 12px;
+  font-family: "Segoe UI", sans-serif;
+  color: rgb(255, 255, 255);
+  line-height: 1.5;
+  outline: none;
+  text-align: center;
 }
-.main_menu .slider-box input {
-  width: 70%;
+.main_menu .wrapper input[type=number]::-webkit-outer-spin-button,
+.main_menu .wrapper input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
-.main_menu .slider-box .slider {
-  margin: 25px 0;
+.main_menu .wrapper .price-input .separator {
+  display: flex;
+  font-size: 19px;
+  align-items: center;
+  justify-content: center;
+}
+.main_menu .wrapper .slider {
+  height: 5px;
+  position: relative;
+  background: #ddd;
+}
+.main_menu .wrapper .slider .progress {
+  height: 100%;
+  left: 0;
+  right: 0;
+  position: absolute;
+  background: #feb341;
+  box-shadow: -1px 0px 23px -1px rgba(254, 179, 65, 0.75);
+  -webkit-box-shadow: -1px 0px 23px -1px rgba(254, 179, 65, 0.75);
+  -moz-box-shadow: -1px 0px 23px -1px rgba(254, 179, 65, 0.75);
+}
+.main_menu .wrapper .range-input {
+  position: relative;
+  width: calc(100% + 15px);
+}
+.main_menu .wrapper .range-input input {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: 5px;
+  left: -7px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.main_menu .wrapper input[type=range]::-webkit-slider-thumb {
+  border: 8px solid transparent;
+  border-bottom: 12px solid #feb341;
+  width: 12px;
+  border-top-right-radius: none;
+  pointer-events: auto;
+  -webkit-appearance: none;
+}
+.main_menu .wrapper input[type=range]::-moz-range-thumb {
+  height: 17px;
+  width: 17px;
+  border: none;
+  border-radius: 50%;
+  background: #17a2b8;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
 }
 
 .rendom_accounts {
@@ -174,12 +364,14 @@ header .sign_in {
   line-height: 0.967;
 }
 .rendom_accounts .rendom_accounts_card {
+  display: block;
   margin: 0 auto;
   width: 250px;
   text-align: center;
 }
 .rendom_accounts .rendom_accounts_card img {
   width: 100%;
+  transition: 0.2s ease;
 }
 .rendom_accounts .rendom_accounts_card h4 {
   font-size: 13px;
@@ -189,12 +381,13 @@ header .sign_in {
   margin-bottom: 20px;
 }
 .rendom_accounts .rendom_accounts_card .price {
+  transition: 0.2s ease;
   display: inline-block;
   position: relative;
   border: none;
   background-image: linear-gradient(45deg, rgb(15, 2, 193) 0%, rgb(65, 117, 235) 100%);
   background-image: -ms-linear-gradient(45deg, rgb(15, 2, 193) 0%, rgb(65, 117, 235) 100%);
-  padding: 10px 20px;
+  padding: 0 15px;
   border-radius: 6px;
   font-size: 17.369px;
   font-family: "Rubik", sans-serif;
@@ -204,13 +397,13 @@ header .sign_in {
 .rendom_accounts .rendom_accounts_card .price .discount {
   white-space: nowrap;
   position: absolute;
-  top: -18px;
-  left: 50%;
-  font-size: 13px;
+  top: -15px;
+  left: 65%;
+  font-size: 12px;
   font-family: "Myriad Pro", sans-serif;
   color: rgb(255, 255, 255);
   line-height: 1.465;
-  padding: 6px 11px;
+  padding: 1px 11px;
   border-radius: 6px;
   background-color: rgb(255, 61, 61);
   box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.75);
@@ -221,11 +414,17 @@ header .sign_in {
   content: "";
   position: absolute;
   width: 80%;
-  top: 13px;
+  top: 7px;
   left: 8px;
   height: 2px;
   background-color: #fff;
   transform: rotate(-11deg);
+}
+.rendom_accounts .rendom_accounts_card:hover img {
+  transform: translateY(-10px);
+}
+.rendom_accounts .rendom_accounts_card:hover .price {
+  background-image: linear-gradient(45deg, rgb(26, 18, 143) 0%, rgb(91, 134, 234) 100%);
 }
 .rendom_accounts .rendom_bottom {
   margin-top: 58px;
@@ -243,6 +442,7 @@ header .sign_in {
 }
 .rendom_accounts .rendom_accounts_cards .rendom_accounts_bottom_card img {
   width: 100%;
+  transition: 0.2s ease;
 }
 .rendom_accounts .rendom_accounts_cards .rendom_accounts_bottom_card h4 {
   font-size: 13px;
@@ -252,12 +452,13 @@ header .sign_in {
   margin-bottom: 20px;
 }
 .rendom_accounts .rendom_accounts_cards .rendom_accounts_bottom_card .price {
+  transition: 0.2s ease;
   display: inline-block;
   position: relative;
   border: none;
   background-image: linear-gradient(45deg, rgb(15, 2, 193) 0%, rgb(65, 117, 235) 100%);
   background-image: -ms-linear-gradient(45deg, rgb(15, 2, 193) 0%, rgb(65, 117, 235) 100%);
-  padding: 10px 20px;
+  padding: 0 15px;
   border-radius: 6px;
   font-size: 17.369px;
   font-family: "Rubik", sans-serif;
@@ -267,13 +468,13 @@ header .sign_in {
 .rendom_accounts .rendom_accounts_cards .rendom_accounts_bottom_card .price .discount {
   white-space: nowrap;
   position: absolute;
-  top: -18px;
-  left: 50%;
-  font-size: 13px;
+  top: -15px;
+  left: 65%;
+  font-size: 12px;
   font-family: "Myriad Pro", sans-serif;
   color: rgb(255, 255, 255);
   line-height: 1.465;
-  padding: 6px 11px;
+  padding: 1px 11px;
   border-radius: 6px;
   background-color: rgb(255, 61, 61);
   box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.75);
@@ -284,18 +485,38 @@ header .sign_in {
   content: "";
   position: absolute;
   width: 80%;
-  top: 13px;
+  top: 7px;
   left: 8px;
   height: 2px;
   background-color: #fff;
   transform: rotate(-11deg);
 }
+.rendom_accounts .rendom_accounts_cards .rendom_accounts_bottom_card:hover img {
+  transform: translateY(-10px);
+}
+.rendom_accounts .rendom_accounts_cards .rendom_accounts_bottom_card:hover .price {
+  background-image: linear-gradient(45deg, rgb(26, 18, 143) 0%, rgb(91, 134, 234) 100%);
+}
+
+.politics_text .politics_text_in {
+  margin: 70px auto !important;
+  max-width: 1440px;
+  background-color: #242442;
+  border-radius: 10px;
+  padding: 32px 52px;
+}
+.politics_text p {
+  font-size: 18px;
+  font-family: "Segoe UI", sans-serif;
+  color: rgb(255, 255, 255);
+  line-height: 1.278;
+}
 
 #shopping {
-  height: 100vh;
-  background-color: #494970;
+  visibility: hidden;
 }
 #shopping .shopping_modal {
+  z-index: 10;
   padding-bottom: 34px;
   text-align: center;
   border-radius: 5px;
@@ -370,6 +591,11 @@ header .sign_in {
   background-color: rgb(232, 193, 138);
 }
 
+#shopping:target {
+  visibility: visible;
+  opacity: 1;
+}
+
 #error {
   height: 100vh;
   background-color: #1b1b3a;
@@ -397,7 +623,8 @@ header .sign_in {
   line-height: 1.444;
   font-weight: 400;
 }
-#error .error_block button {
+#error .error_block a {
+  width: 165px;
   margin: 0 auto;
   cursor: pointer;
   padding: 9px 15px;
@@ -415,6 +642,9 @@ header .sign_in {
 }
 
 #accardion_wrapper {
+  margin: 0 20px;
+}
+#accardion_wrapper .accardion_in {
   max-width: 1460px;
   margin: 120px auto 585px auto;
   padding: 32px 52px;
@@ -462,8 +692,10 @@ header .sign_in {
   font-weight: 400;
 }
 #accardion_wrapper .accardion_block p {
-  height: 278px;
-  display: none;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
   padding-left: 100px;
   padding-right: 38px;
   font-size: 18px;
@@ -481,9 +713,6 @@ header .sign_in {
 #accardion_wrapper .accardion_block.active button h5 {
   color: rgb(255, 150, 0);
 }
-#accardion_wrapper .accardion_block.active p {
-  display: block;
-}
 #accardion_wrapper .accardion_text {
   margin-top: 130px;
   font-size: 24px;
@@ -493,6 +722,10 @@ header .sign_in {
 }
 #accardion_wrapper .accardion_text a {
   color: #feb341;
+}
+
+.payment_wrapper {
+  margin: 0 20px;
 }
 
 #payment {
@@ -763,6 +996,10 @@ footer .footer_left .logo_text .footer_link {
   line-height: 1.278;
   font-weight: 400;
   margin-bottom: 11px;
+  transition: 0.2s ease;
+}
+footer .footer_left .logo_text .footer_link:hover {
+  color: #feb341;
 }
 footer .footer_left .logo_text .copiration {
   display: inline-block;
@@ -812,4 +1049,238 @@ footer .footer_right p {
   font-family: "Segoe UI", sans-serif;
   color: rgb(140, 140, 140);
   line-height: 1.539;
+}
+
+@media (max-width: 1920px) {
+  footer {
+    padding: 132px 5px 80px 5px;
+  }
+  footer .footer_center img {
+    width: 60%;
+  }
+  footer .footer_right {
+    position: relative;
+    z-index: 3;
+  }
+  footer .footer_right img {
+    width: 100%;
+  }
+  footer .footer_right .footer_right_text {
+    width: 500px;
+  }
+}
+@media (max-width: 1600px) {
+  footer .footer_center img {
+    width: 70%;
+  }
+  footer .footer_right .footer_right_text {
+    width: 400px;
+  }
+  footer .footer_right .footer_right_text p {
+    text-align: right;
+  }
+}
+@media (max-width: 1250px) {
+  #payment {
+    gap: 10px;
+  }
+  #payment .payment_text {
+    padding: 20px;
+    flex: 1;
+  }
+  #payment .payment_text .payment_text_head {
+    flex-direction: column;
+  }
+  #payment .payment_text .payment_text_head img {
+    width: 100%;
+    height: auto;
+  }
+  #payment .payment_text .payment_text_head .payment_text_right {
+    max-width: 100%;
+  }
+  #payment .payment_form {
+    flex: 1;
+  }
+  footer {
+    padding: 40px 20px;
+  }
+  footer .footer_container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  footer .footer_left {
+    gap: 10px;
+  }
+  footer .footer_left .logo_text .copiration {
+    margin-bottom: 50px;
+  }
+  footer .footer_center {
+    margin: 0;
+    left: 0;
+    margin-top: 25px;
+    position: sticky;
+  }
+  footer .footer_center img {
+    width: 100%;
+  }
+  footer .footer_right {
+    position: sticky;
+  }
+  footer .footer_right .footer_right_text {
+    width: 100% !important;
+  }
+  footer .footer_right .footer_right_text img {
+    width: 100%;
+  }
+  footer .footer_right p {
+    margin-top: 25px;
+    text-align: left;
+  }
+}
+@media (max-width: 993px) {
+  .header_container {
+    padding: 0 10px;
+  }
+  #payment {
+    flex-direction: column;
+  }
+  #payment .payment_form {
+    margin: 0 auto;
+  }
+  header .logo img {
+    width: 75%;
+  }
+  header .nav_media.active {
+    right: 0;
+  }
+  header nav {
+    display: none;
+  }
+  header .header_burger {
+    display: flex;
+  }
+}
+@media (max-width: 768px) {
+  #accardion_wrapper .accardion_head h4 {
+    font-size: 25px;
+  }
+  #accardion_wrapper .accardion_in {
+    margin: 100px auto;
+    padding: 15px;
+  }
+  #accardion_wrapper .accardion_in .accardion_block button {
+    gap: 15px;
+    padding: 10px 20px;
+    text-align: left;
+  }
+  #accardion_wrapper .accardion_in .accardion_block button h5 {
+    font-size: 18px;
+  }
+  #accardion_wrapper .accardion_in .accardion_block button img {
+    width: 25px;
+    height: 25px;
+  }
+  #accardion_wrapper .accardion_in .accardion_block p {
+    padding-left: 10%;
+  }
+  #accardion_wrapper .accardion_text {
+    margin-top: 70px;
+    font-size: 16px;
+  }
+  .politics_text .politics_text_in {
+    padding: 30px 20px;
+  }
+  .politics_text .politics_text_in p {
+    font-size: 14px;
+  }
+  .rendom_accounts h3 {
+    margin-bottom: 25px;
+    font-size: 22px;
+  }
+  .main_menu .main_menu_in {
+    flex-direction: column;
+  }
+}
+@media (max-width: 576px) {
+  .main_menu .main_menu_in {
+    gap: 15px;
+  }
+  .rendom_accounts .rendom_accounts_card {
+    width: 70%;
+  }
+  .rendom_accounts .rendom_accounts_cards {
+    margin-bottom: 100px;
+    gap: 10px;
+    flex-direction: column;
+  }
+  .rendom_accounts .rendom_accounts_cards .rendom_accounts_bottom_card {
+    width: 70%;
+  }
+  #shopping .shopping_modal {
+    width: 90%;
+  }
+  #shopping .shopping_modal form input {
+    width: calc(100% - 45px);
+  }
+  #shopping .shopping_modal form button {
+    padding: 11px 0;
+    font-size: 23px;
+    width: calc(100% - 45px);
+  }
+  #payment {
+    flex-direction: column;
+  }
+  #payment .payment_text .payment_text_head {
+    gap: 15px;
+  }
+  #payment .payment_text .payment_text_head .payment_text_right {
+    padding: 15px;
+  }
+  #payment .payment_text .payment_text_head .payment_text_right h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  #payment .payment_text .payment_text_head .payment_text_right h4 {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  #payment .payment_text .payment_text_head .payment_text_right p {
+    font-size: 14px;
+  }
+  #payment .payment_text p {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  #payment .payment_text h2 {
+    font-size: 20px;
+  }
+  #payment .payment_text h6 {
+    font-size: 14px;
+  }
+  #payment .payment_form {
+    padding: 15px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  #payment .payment_form input {
+    height: 50px;
+    font-size: 25px;
+  }
+  #payment .payment_form .oplate h6 {
+    margin-bottom: 15px;
+  }
+  #payment .payment_form .oplate button {
+    height: 55px;
+    font-size: 30px;
+  }
+  footer .footer_left {
+    flex-direction: column;
+  }
+  footer .footer_left .footer_logo img {
+    transform: translateY(1px);
+  }
+  #error .error_block .error_img {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */

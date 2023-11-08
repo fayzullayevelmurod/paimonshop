@@ -14,6 +14,13 @@
             <a class="logo" href="#">
                 <img src="./images/header_logo.png" alt="">
             </a>
+            <div class="nav_media">
+                <img class="nav_close" src="./images/modal_close.svg" alt="">
+                <a class="nav_link" href="#">FAQ</a>
+                <a class="nav_link" href="#">Поддержка</a>
+                <a class="nav_link" href="#">Сообщество</a>
+                <a class="nav_link" href="#">Сотрудничество</a>
+            </div>
             <nav>
                 <a class="nav_link" href="#">FAQ</a>
                 <a class="nav_link" href="#">Поддержка</a>
@@ -23,6 +30,11 @@
             <button>
                 <img src="./images/header_icon.png" alt="">
             </button>
+            <a class="header_burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
         </div>
     </header>
 
@@ -45,27 +57,29 @@
     </section>
 
     <section id="accardion_wrapper">
-        <div class="accardion_head">
-            <img src="./images/faq_icon.svg" alt="">
-            <h4>Часто задаваемые вопросы</h4>
+        <div class="accardion_in">
+            <div class="accardion_head">
+                <img src="./images/faq_icon.svg" alt="">
+                <h4>Часто задаваемые вопросы</h4>
+            </div>
+            <div class="accardion_block">
+                <button>
+                    <img src="./images/accardion_icon_close.svg" alt=""  class="button_close">
+                    <img src="./images/accardion_icon_open.svg" alt="" class="button_open">
+                    <h5>Как купить аккаунт Genshin Impact</h5>
+                </button>
+                <p>тут ответ на вопрос</p>
+            </div>
+            <div class="accardion_block">
+                <button>
+                    <img src="./images/accardion_icon_close.svg" alt=""  class="button_close">
+                    <img src="./images/accardion_icon_open.svg" alt="" class="button_open">
+                    <h5>Как купить аккаунт Genshin Impact22222</h5>
+                </button>
+                <p>тут ответ на вопрос</p>
+            </div>
+            <p class="accardion_text">По остальным вопросам обращайтесь в <a href="#">поддержку</a> или на почту <a href="mailto:paimonshop.store@gmail.com">paimonshop.store@gmail.com</a></p>
         </div>
-        <div class="accardion_block">
-            <button>
-                <img src="./images/accardion_icon_close.svg" alt=""  class="button_close">
-                <img src="./images/accardion_icon_open.svg" alt="" class="button_open">
-                <h5>Как купить аккаунт Genshin Impact</h5>
-            </button>
-            <p>тут ответ на вопрос</p>
-        </div>
-        <div class="accardion_block active">
-            <button>
-                <img src="./images/accardion_icon_close.svg" alt=""  class="button_close">
-                <img src="./images/accardion_icon_open.svg" alt="" class="button_open">
-                <h5>Как купить аккаунт Genshin Impact22222</h5>
-            </button>
-            <p>тут ответ на вопрос</p>
-        </div>
-        <p class="accardion_text">По остальным вопросам обращайтесь в <a href="#">поддержку</a> или на почту <a href="mailto:paimonshop.store@gmail.com">paimonshop.store@gmail.com</a></p>
     </section>
 
     <footer>
@@ -77,11 +91,11 @@
                 <div class="logo_text">
                     <h3>© 2023 paimonshop.ru</h3>
                     <a class="top_link">Различные товары Genshin Impact</a>
-                    <a class="footer_link" href="#">Пользовательское соглашение</a>
-                    <a class="footer_link" href="#">Политика конфиденциальности</a>
+                    <a class="footer_link" href="./terms.html">Пользовательское соглашение</a>
+                    <a class="footer_link" href="./politics.html">Политика конфиденциальности</a>
                     <a class="footer_link" href="#">FAQ</a>
                     <a class="footer_link" href="#">Новости</a>
-                    <a href="#" class="copiration">Сотрудничество</a>
+                    <a href="https://t.me/noov4rt" class="copiration">Сотрудничество</a>
                     <div class="social_media">
                         <p>Наши соц. сети:</p>
                         <a href="#"><img src="./images/youtube_icon.svg" alt=""></a>
@@ -104,5 +118,20 @@
         </div>
     </footer>
 
+
+    <script src="./js/app.js"></script>
+    <script>
+        const items = document.querySelectorAll('.accardion_block');
+
+        items.forEach((item) => {
+            const header = item.querySelector('button');
+            const content = item.querySelector('p');
+
+            header.addEventListener('click', () => {
+                item.classList.toggle('active')
+                content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + 'px';
+            });
+        });
+    </script>
 </body>
 </html>

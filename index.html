@@ -11,18 +11,45 @@
     <title>Paimonshop</title>
 </head>
 <body>
+    <section id="shopping">
+        <div class="shopping_modal">
+            <div class="shopping_modal_head">
+                <h4>Покупки</h4>
+                <a class="modal_close" href="#">
+                    <img  src="./images/modal_close.svg" alt="">
+                </a>
+            </div>
+            <p>Укажите почту, которую Вы указывли при покупке</p>
+            <form>
+                <input type="email" placeholder="Введите почту">
+                <button type="submit">Посмотреть</button>
+            </form>
+        </div>
+    </section>
     <header>
         <div class="header_container">
             <a class="logo" href="#">
                 <img src="./images/header_logo.png" alt="">
             </a>
+            <div class="nav_media">
+                <img class="nav_close" src="./images/modal_close.svg" alt="">
+                <a class="nav_link" href="#">FAQ</a>
+                <a class="nav_link" href="#">Поддержка</a>
+                <a class="nav_link" href="#">Сообщество</a>
+                <a class="nav_link" href="#">Сотрудничество</a>
+            </div>
             <nav>
                 <a class="nav_link" href="#">FAQ</a>
                 <a class="nav_link" href="#">Поддержка</a>
                 <a class="nav_link" href="#">Сообщество</a>
                 <a class="nav_link" href="https://t.me/noov4rt">Сотрудничество</a>
             </nav>
-            <a class="sign_in" href="#">Мои покупки</a>
+            <a class="sign_in" href="#shopping">Мои покупки</a>
+            <a class="header_burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
         </div>
     </header>
 
@@ -45,24 +72,52 @@
     </section>
 
     <section class="main_menu">
-        <button class="category_btn main_menu_btn">
-            Категории
-            <img src="./images/down_icon.svg" alt="">
-        </button>
-        <button class="region_btn main_menu_btn">
-            Регионы
-            <img src="./images/down_icon.svg" alt="">
-        </button>
-        <div class="slider-box">
-            <label for="priceRange">Price Range:</label>
-            <input type="text" id="priceRange" readonly>
-            <div id="price-range" class="slider"></div>
+        <div class="main_menu_in">
+            <button class="category_btn main_menu_btn">
+                Категории
+                <img src="./images/down_icon.svg" alt="">
+                <div class="category_list">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                    <a href="#">Link 4</a>
+                    <a href="#">Link 5</a>
+                </div>
+            </button>
+            <button class="region_btn main_menu_btn">
+                Регионы
+                <img src="./images/down_icon.svg" alt="">
+                <div class="category_list">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                    <a href="#">Link 4</a>
+                    <a href="#">Link 5</a>
+                </div>
+            </button>
+            <div class="wrapper">
+                <div class="price-input">
+                  <div class="field">
+                    <input type="number" class="input-min" value="0"><span class="input-min">0 ₽</span>
+                  </div>
+                  <div class="field">
+                    <input type="number" class="input-max" value="4444"><span class="input-max">4444 ₽</span>
+                  </div>
+                </div>
+                <div class="slider">
+                  <div class="progress"></div>
+                </div>
+                <div class="range-input">
+                  <input type="range" class="range-min" min="0" max="4444" value="0" step="1">
+                  <input type="range" class="range-max" min="0" max="4444" value="4444" step="1">
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="rendom_accounts">
         <h3>Рандомные аккаунты</h3>
-        <div class="rendom_accounts_card">
+        <a href="#" class="rendom_accounts_card">
             <img src="./images/card.png" alt="">
             <h4>Аккаунт 100% Ху Тао |<br> 
                 EU | Без почты
@@ -71,10 +126,10 @@
                 100.00 ₽
                 <span class="discount">120.00 ₽</span>
             </div>
-        </div>
+        </a>
         <h3 class="rendom_bottom">Аккаунты с примогемами</h3>
         <div class="rendom_accounts_cards">
-            <div class="rendom_accounts_bottom_card">
+            <a href="#" class="rendom_accounts_bottom_card">
                 <img src="./images/card.png" alt="">
                 <h4>Аккаунт 100% Ху Тао |<br> 
                     EU | Без почты
@@ -83,8 +138,8 @@
                     100.00 ₽
                     <span class="discount">120.00 ₽</span>
                 </div>
-            </div>
-            <div class="rendom_accounts_bottom_card">
+            </a>
+            <a href="#" class="rendom_accounts_bottom_card">
                 <img src="./images/card.png" alt="">
                 <h4>Аккаунт 100% Ху Тао |<br> 
                     EU | Без почты
@@ -93,7 +148,7 @@
                     100.00 ₽
                     <span class="discount">120.00 ₽</span>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -107,8 +162,8 @@
                 <div class="logo_text">
                     <h3>© 2023 paimonshop.ru</h3>
                     <a class="top_link">Различные товары Genshin Impact</a>
-                    <a class="footer_link" href="#">Пользовательское соглашение</a>
-                    <a class="footer_link" href="https://paimonshop.store/politic">Политика конфиденциальности</a>
+                    <a class="footer_link" href="./terms.html">Пользовательское соглашение</a>
+                    <a class="footer_link" href="./politics.html">Политика конфиденциальности</a>
                     <a class="footer_link" href="#">FAQ</a>
                     <a class="footer_link" href="#">Новости</a>
                     <a href="https://t.me/noov4rt" class="copiration">Сотрудничество</a>
@@ -135,20 +190,53 @@
     </footer>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/app.js"></script>
     <script>
-        $(function() {
-        $("#price-range").slider({
-            step: 1,
-            range: true, 
-            min: 0, 
-            max: 4444, 
-            values: [0, 4444], 
-            slide: function(event, ui)
-            {$("#priceRange").val(ui.values[0] + " - " + ui.values[1]);}
+        const rangeInput = document.querySelectorAll(".range-input input"),
+        priceInput = document.querySelectorAll(".price-input input"),
+        range = document.querySelector(".slider .progress");
+        let priceGap = 1000;
+
+        priceInput.forEach((input) => {
+        input.addEventListener("input", (e) => {
+            let minPrice = parseInt(priceInput[0].value),
+            maxPrice = parseInt(priceInput[1].value);
+
+            if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
+            if (e.target.className === "input-min") {
+                rangeInput[0].value = minPrice;
+                range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+            } else {
+                rangeInput[1].value = maxPrice;
+                range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+            }
+            }
         });
-        $("#priceRange").val($("#price-range").slider("values", 0) + " - " + $("#price-range").slider("values", 1));
-        
+        });
+
+        rangeInput.forEach((input) => {
+        input.addEventListener("input", (e) => {
+            let minVal = parseInt(rangeInput[0].value),
+            maxVal = parseInt(rangeInput[1].value);
+
+            if (maxVal - minVal < priceGap) {
+            if (e.target.className === "range-min") {
+                rangeInput[0].value = maxVal - priceGap;
+            } else {
+                rangeInput[1].value = minVal + priceGap;
+            }
+            } else {
+            priceInput[0].value = minVal;
+            priceInput[1].value = maxVal;
+            range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+            range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+            }
+
+            let span = document.querySelectorAll('.price-input span');
+
+            span[0].innerHTML = minVal + ' ₽';
+            span[1].innerHTML = maxVal + ' ₽';
+        });
         });
     </script>
 </body>
