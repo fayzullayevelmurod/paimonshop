@@ -53,7 +53,6 @@
             </a>
         </div>
     </header>
-
     <section class="recent">
         <div class="recent_container">
             <h4>Недавние покупки</h4>
@@ -72,84 +71,19 @@
         </div>
     </section>
 
-    <section class="main_menu">
-        <div class="main_menu_in">
-            <button class="category_btn main_menu_btn">
-                Категории
-                <img src="./images/down_icon.svg" alt="">
-                <div class="category_list_one">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                </div>
-            </button>
-            <button class="region_btn main_menu_btn">
-                Регионы
-                <img src="./images/down_icon.svg" alt="">
-                <div class="category_list">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                </div>
-            </button>
-            <div class="wrapper">
-                <div class="price-input">
-                  <div class="field">
-                    <input type="number" class="input-min" value="0"><span class="input-min">0 ₽</span>
-                  </div>
-                  <div class="field">
-                    <input type="number" class="input-max" value="4444"><span class="input-max">4444 ₽</span>
-                  </div>
-                </div>
-                <div class="slider">
-                  <div class="progress"></div>
-                </div>
-                <div class="range-input">
-                  <input type="range" class="range-min" min="0" max="4444" value="0" step="1">
-                  <input type="range" class="range-max" min="0" max="4444" value="4444" step="1">
-                </div>
-            </div>
+    <section id="purchases">
+        <h2>Мои покупки</h2>
+        <div class="purchases_wrapper">
+            <h3 class="nameone">Hазвание</h3>
+            <h3 class="name">Kоличество</h3>
+            <h3 class="name">Цена</h3>
+            <h3 class="name">Cкачать</h3>
         </div>
-    </section>
-
-    <section class="rendom_accounts">
-        <h3>Рандомные аккаунты</h3>
-        <a href="#" class="rendom_accounts_card">
-            <img src="./images/card.png" alt="">
-            <h4>Аккаунт 100% Ху Тао |<br> 
-                EU | Без почты
-            </h4>
-            <div class="price">
-                100.00 ₽
-                <span class="discount">120.00 ₽</span>
-            </div>
-        </a>
-        <h3 class="rendom_bottom">Аккаунты с примогемами</h3>
-        <div class="rendom_accounts_cards">
-            <a href="#" class="rendom_accounts_bottom_card">
-                <img src="./images/card.png" alt="">
-                <h4>Аккаунт 100% Ху Тао |<br> 
-                    EU | Без почты
-                </h4>
-                <div class="price">
-                    100.00 ₽
-                    <span class="discount">120.00 ₽</span>
-                </div>
-            </a>
-            <a href="#" class="rendom_accounts_bottom_card">
-                <img src="./images/card.png" alt="">
-                <h4>Аккаунт 100% Ху Тао |<br> 
-                    EU | Без почты
-                </h4>
-                <div class="price">
-                    100.00 ₽
-                    <span class="discount">120.00 ₽</span>
-                </div>
-            </a>
+        <div class="purcheses_in">
+            <h4 class="name_underone">Noovart</h4>
+            <h4 class="name_under">1</h4>
+            <h4 class="name_under">339.13</h4>
+            <h4 class="name_under"><button>Cкачать</button></h4>
         </div>
     </section>
 
@@ -197,53 +131,5 @@
 
 
     <script src="./js/app.js"></script>
-    <script>
-        const rangeInput = document.querySelectorAll(".range-input input"),
-        priceInput = document.querySelectorAll(".price-input input"),
-        range = document.querySelector(".slider .progress");
-        let priceGap = 1000;
-
-        priceInput.forEach((input) => {
-        input.addEventListener("input", (e) => {
-            let minPrice = parseInt(priceInput[0].value),
-            maxPrice = parseInt(priceInput[1].value);
-
-            if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
-            if (e.target.className === "input-min") {
-                rangeInput[0].value = minPrice;
-                range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
-            } else {
-                rangeInput[1].value = maxPrice;
-                range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
-            }
-            }
-        });
-        });
-
-        rangeInput.forEach((input) => {
-        input.addEventListener("input", (e) => {
-            let minVal = parseInt(rangeInput[0].value),
-            maxVal = parseInt(rangeInput[1].value);
-
-            if (maxVal - minVal < priceGap) {
-            if (e.target.className === "range-min") {
-                rangeInput[0].value = maxVal - priceGap;
-            } else {
-                rangeInput[1].value = minVal + priceGap;
-            }
-            } else {
-            priceInput[0].value = minVal;
-            priceInput[1].value = maxVal;
-            range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
-            range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
-            }
-
-            let span = document.querySelectorAll('.price-input span');
-
-            span[0].innerHTML = minVal + ' ₽';
-            span[1].innerHTML = maxVal + ' ₽';
-        });
-        });
-    </script>
 </body>
 </html>

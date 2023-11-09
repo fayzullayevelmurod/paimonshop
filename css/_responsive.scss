@@ -273,6 +273,7 @@
             flex-direction: column;
             .footer_logo{
                 img{
+                    width: 100px;
                     transform: translateY(1px);
                 }
             }
@@ -282,6 +283,26 @@
         .error_block {
             .error_img {
                 width: 100%;
+            }
+        }
+    }
+
+    #purchases {
+        h2 {
+            font-size: 20px;
+        }
+        .purchases_wrapper {
+            .nameone, .name {
+                flex: 1;
+                font-size: 13px;
+            }
+        }
+        .purcheses_in {
+            .name_underone, .name_under {
+                display: flex;
+                align-items: center;
+                flex: 1;
+                font-size: 11px;
             }
         }
     }
